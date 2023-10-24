@@ -16,6 +16,6 @@ git reset --hard origin/master
 git pull origin master
 
 # Exit maintenance mode
-$PYTHON_PATH -m uvicorn main:app --host 0.0.0.0 --port 8000 &
+$PYTHON_PATH -m uvicorn main:app --host 0.0.0.0 --port 8000 > /dev/null 2>&1 &
 
 echo "Deployment finished!"
