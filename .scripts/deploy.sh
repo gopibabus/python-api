@@ -4,7 +4,6 @@ set -e
 
 PYTHON_PATH=/usr/bin/python3
 PIP_PATH=/usr/bin/pip
-UVICORN_PATH=/usr/local/bin/uvicorn
 
 echo "Deployment started ..."
 
@@ -17,6 +16,6 @@ git reset --hard origin/master
 git pull origin master
 
 # Exit maintenance mode
-$PYTHON_PATH $PIP_PATH $UVICORN_PATH main:app
+$PYTHON_PATH $PIP_PATH -m uvicorn main:app --host 0.0.0.0 --port 8000
 
 echo "Deployment finished!"
